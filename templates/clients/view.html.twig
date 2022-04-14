@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block title %}Clients{% endblock %}{% block
+    body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card bg-light mb-3 mt-3">
+                    <div class="card-body">
+                        <div class="card-header">Détail d’une société cliente</div>
+                        {% for key, item in societe %}
+                            {% if item.id == clients.societesId  %}
+                        <h3>{{ item.nom}}</h3>
+                            {% endif %}
+                        {% endfor %}
+                        <p>Ref Contrat: {{ clients.ref}}  {{ clients.montant}}€  </p>
+                        <table class="table">
+                            <tr>
+                                <th>Machines</th>
+                                <th>Quantité</th>
+
+                            </tr>
+                            {% for key, item in contrat %}
+
+                                    {% if item.contratsId == clients.id  %}
+                                        <tr>
+
+                                            <td>{{ item.machinesId}}</td>
+
+                                            <td>{{ item.nombre}}</td>
+
+                                        </tr>
+                                    {% endif %}
+
+                            {% endfor %}
+                        </table>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

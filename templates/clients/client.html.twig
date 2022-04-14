@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}Clients{% endblock %}{% block
+    body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card bg-light mb-3 mt-3">
+                    <div class="card-body">
+                        <div class="card-header">Clients</div>
+
+                            <table class="table">
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Contrats</th>
+                                    <th>Total€</th>
+                                </tr>
+                                {% for key, item in clients %}
+                                {% for key, item1 in societe %}
+                                    {% if item.societesId == item1.id  %}
+                                    <tr>
+
+                                        <td>{{ item1.nom}}</td>
+
+                                        <td>435455</td>
+                                        <td>{{ item.montant }}€</td>
+                                        <td>  <button  class="btn btn-primary" onclick="openUrl({{ item.id }})" >Détail</button></td>
+                                    </tr>
+                                    {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </table>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
